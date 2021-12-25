@@ -89,7 +89,7 @@ public class Graphe extends JFrame {
             g.fillArc(50,50,150,150,225,270);
         });
         b8.addActionListener(e -> {
-
+            g.clearRect(0, 0, cv.getWidth(), cv.getHeight());
         });
 
         this.setLayout(new BorderLayout());
