@@ -57,21 +57,25 @@ public class Graphe extends JFrame {
         Polygon p = new Polygon();
         b5.addActionListener(e -> {
             g.setColor(Color.WHITE);
+            int x1=-10000;
+            int y1= (int) (Math.cos(x1/7)+Math.sin(x1/5)+3)*100;
+            for (int x2=-10000;x2<=10000;x2++){
+                int y2= (int) (Math.cos(x2/7)+Math.sin(x2/5)+3)*100;
+                g.drawLine(x1+500,y1,x2+500,y2);
+                //g.drawLine(x1,y1,-x2,-y2);
 
-            p.addPoint(100,50);
-            p.addPoint(200,50);
-            p.addPoint(300,-50);
-            p.addPoint(400,-50);
-            g.drawPolygon(p);
+                x1=x2;
+                y1=y2;
+            }
 
         });
         b6.addActionListener(e -> {
             g.setColor(Color.WHITE);
-            int x1=-100000;
+            int x1=-10000;
             int y1=4+ (int) Math.pow(x1,2)-3*x1+5;
-            for (int x2=-500;x2<=500;x2++){
+            for (int x2=-10000;x2<=10000;x2++){
                 int y2 = 4*(int) Math.pow(x2,2)-3*x2+5;
-                g.drawLine(x1,y1,x2,y2);
+                g.drawLine(x1+500,y1,x2+500,y2);
                 //g.drawLine(x1,y1,-x2,-y2);
 
                 x1=x2;
@@ -80,12 +84,8 @@ public class Graphe extends JFrame {
         });
         b7.addActionListener(e -> {
             g.setColor(Color.WHITE);
-            g.drawArc(50,50,150,150,225,270);
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
+            //g.drawArc(50,50,150,150,225,270);
+
             g.fillArc(50,50,150,150,225,270);
         });
         b8.addActionListener(e -> {
