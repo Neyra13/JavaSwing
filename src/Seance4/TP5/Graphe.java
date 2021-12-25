@@ -66,7 +66,16 @@ public class Graphe extends JFrame {
         });
         b6.addActionListener(e -> {
             g.setColor(Color.WHITE);
-            
+            int x1=-100000;
+            int y1=4+ (int) Math.pow(x1,2)-3*x1+5;
+            for (int x2=-500;x2<=500;x2++){
+                int y2 = 4*(int) Math.pow(x2,2)-3*x2+5;
+                g.drawLine(x1,y1,x2,y2);
+                //g.drawLine(x1,y1,-x2,-y2);
+
+                x1=x2;
+                y1=y2;
+            }
         });
         b7.addActionListener(e -> {
             g.setColor(Color.WHITE);
