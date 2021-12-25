@@ -55,11 +55,14 @@ public class Graphe extends JFrame {
             g.drawPolygon(tabX,tabY,nbrPoint);
         });
         Polygon p = new Polygon();
+        Courbe cc = new Courbe();
         b5.addActionListener(e -> {
-            g.setColor(Color.WHITE);
-            for (int x=-1000;x<=1000;x++){
-                g.drawLine(x,(int)f(x), x+1, (int)f(x+1));
-            }
+
+            if(b5.getText().equals("f(x1)")) {cc.start(); b5.setText("f(x1): Pause");}
+            else if(b5.getText().equals("f(x1): Pause")){cc.suspend(); b5.setText("f(x1): Resume");}
+            else if(b5.getText().equals("f(x1): Resume")){cc.resume(); b5.setText("f(x1): Pause");}
+
+
 
         });
         b6.addActionListener(e -> {
@@ -81,8 +84,8 @@ public class Graphe extends JFrame {
             g.fillArc(50,50,150,150,225,270);
         });
         b8.addActionListener(e -> {
-            //g.clearRect(0, 0, cv.getWidth(), cv.getHeight());
-            cv.update(g);
+            g.clearRect(0, 0, cv.getWidth(), cv.getHeight());
+            //cv.update(g);
         });
 
         this.setLayout(new BorderLayout());
@@ -100,4 +103,24 @@ public class Graphe extends JFrame {
     public static void main(String[] args) {
         Graphe g = new Graphe();
     }
+
+    class Courbe extends Thread{
+        Courbe(){
+
+        }
+
+        public void run(){
+            g.setColor(Color.WHITE);
+            for (int x=0;x<=1000;x++){
+                g.drawLine(x,(int)f(x), x+1, (int)f(x+1));
+                try {
+                    sleep(100);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
+
 }
+
