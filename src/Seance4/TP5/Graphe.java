@@ -75,8 +75,7 @@ public class Graphe extends JFrame {
             int y1=4+ (int) Math.pow(x1,2)-3*x1+5;
             for (int x2=-10000;x2<=10000;x2++){
                 int y2 = 4*(int) Math.pow(x2,2)-3*x2+5;
-                g.drawLine(x1+500,y1,x2+500,y2);
-                //g.drawLine(x1,y1,-x2,-y2);
+                g.drawLine(x1+500,cv.getHeight()-y1,x2+500,cv.getHeight()-y2);
 
                 x1=x2;
                 y1=y2;
