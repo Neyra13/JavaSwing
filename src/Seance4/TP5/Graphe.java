@@ -5,6 +5,8 @@ import java.awt.*;
 
 public class Graphe extends JFrame {
     Methodes m = new Methodes();
+    Graphics g;
+
     public Graphe(){
         this.setTitle("graphe");
         this.setSize(1000, 900);
@@ -34,16 +36,23 @@ public class Graphe extends JFrame {
         panel.add(b8);
 
         b1.addActionListener(e -> {
-
+            g.setColor(Color.WHITE);
+            g.drawLine(10,20,50,150);
         });
         b2.addActionListener(e -> {
-
+            g.setColor(Color.WHITE);
+            g.drawOval(120,20,150,150);
         });
         b3.addActionListener(e -> {
-
+            g.setColor(Color.WHITE);
+            g.drawRect(300,20,150,150);
         });
         b4.addActionListener(e -> {
-
+            g.setColor(Color.WHITE);
+            int tabX[]={300,400,500,350,300,250};
+            int tabY[]={250,250,400,300,450,300};
+            int nbrPoint = tabX.length;
+            g.drawPolygon(tabX,tabY,nbrPoint);
         });
         b5.addActionListener(e -> {
 
@@ -61,8 +70,8 @@ public class Graphe extends JFrame {
         this.setLayout(new BorderLayout());
         this.add(cv,BorderLayout.CENTER);
         this.add(panel,BorderLayout.SOUTH);
-
         this.setVisible(true);
+        g = cv.getGraphics();
 
     }
 
