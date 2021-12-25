@@ -63,6 +63,7 @@ public class Graphe extends JFrame {
             p.addPoint(300,-50);
             p.addPoint(400,-50);
             g.drawPolygon(p);
+
         });
         b6.addActionListener(e -> {
             g.setColor(Color.WHITE);
