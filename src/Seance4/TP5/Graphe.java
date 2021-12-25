@@ -54,8 +54,15 @@ public class Graphe extends JFrame {
             int nbrPoint = tabX.length;
             g.drawPolygon(tabX,tabY,nbrPoint);
         });
+        Polygon p = new Polygon();
         b5.addActionListener(e -> {
+            g.setColor(Color.WHITE);
 
+            p.addPoint(100,50);
+            p.addPoint(200,50);
+            p.addPoint(300,-50);
+            p.addPoint(400,-50);
+            g.drawPolygon(p);
         });
         b6.addActionListener(e -> {
 
