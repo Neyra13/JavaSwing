@@ -65,10 +65,18 @@ public class Graphe extends JFrame {
             g.drawPolygon(p);
         });
         b6.addActionListener(e -> {
-
+            g.setColor(Color.WHITE);
+            
         });
         b7.addActionListener(e -> {
-
+            g.setColor(Color.WHITE);
+            g.drawArc(50,50,150,150,225,270);
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+            g.fillArc(50,50,150,150,225,270);
         });
         b8.addActionListener(e -> {
 
