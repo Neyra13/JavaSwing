@@ -57,15 +57,8 @@ public class Graphe extends JFrame {
         Polygon p = new Polygon();
         b5.addActionListener(e -> {
             g.setColor(Color.WHITE);
-            int x1=-10000;
-            int y1= (int) (Math.cos(x1/7)+Math.sin(x1/5)+3)*100;
-            for (int x2=-10000;x2<=10000;x2++){
-                int y2= (int) (Math.cos(x2/7)+Math.sin(x2/5)+3)*100;
-                g.drawLine(x1+500,y1,x2+500,y2);
-                //g.drawLine(x1,y1,-x2,-y2);
-
-                x1=x2;
-                y1=y2;
+            for (int x=-1000;x<=1000;x++){
+                g.drawLine(x,(int)f(x), x+1, (int)f(x+1));
             }
 
         });
@@ -88,7 +81,8 @@ public class Graphe extends JFrame {
             g.fillArc(50,50,150,150,225,270);
         });
         b8.addActionListener(e -> {
-            g.clearRect(0, 0, cv.getWidth(), cv.getHeight());
+            //g.clearRect(0, 0, cv.getWidth(), cv.getHeight());
+            cv.update(g);
         });
 
         this.setLayout(new BorderLayout());
@@ -97,6 +91,10 @@ public class Graphe extends JFrame {
         this.setVisible(true);
         g = cv.getGraphics();
 
+    }
+
+    double f(double x) {
+        return (Math.cos(x/7)+Math.sin(x/5)+3)*100;
     }
 
     public static void main(String[] args) {
